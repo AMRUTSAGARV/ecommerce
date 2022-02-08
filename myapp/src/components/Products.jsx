@@ -13,7 +13,7 @@ const Products = () => {
     useEffect(() => {
         const getProducts = async () => {
             setLoading(true);
-            const response = await fetch("http://fakestoreapi.com/products");
+            const response = await fetch("https://fakestoreapi.com/products");
             if (componentMounted) {
                 setData(await response.clone().json());
                 setFilter(await response.json());
@@ -52,8 +52,8 @@ const Products = () => {
     };
 
     const filterProduct = (cat) => {
-        const updatedList = data.filter((x) => x.category === cat);
-        setFilter(updatedList)
+        const updatedList = data.filter((x)=>x.category === cat);
+        setFilter(updatedList);
     }
 
     const ShowProducts = () => {
@@ -61,10 +61,10 @@ const Products = () => {
             <>
                 <div className="buttons d-flex justify-content-center mb-5 pb-5">
                     <button className="btn btn-outline-dark me-2" onClick={() => setFilter(data)}>All</button>
-                    <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("men clothing")}>Men's Clothing</button>
-                    <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("women clothing")}> Women's Clothing</button>
-                    <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("jewellery")}>Jewellery</button> 
-                    <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("electronic")}>Electronic</button>
+                    <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("men's clothing")}>Men's Clothing</button>
+                    <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("women's clothing")}> Women's Clothing</button>
+                    <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("jewelery")}>Jewellery</button> 
+                    <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("electronics")}>Electronic</button>
                 </div>
                 {filter.map((product) => {
                     return (
